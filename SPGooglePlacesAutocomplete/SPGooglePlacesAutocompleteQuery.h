@@ -70,5 +70,10 @@
  */
 @property (nonatomic) SPGooglePlacesAutocompletePlaceType types;
 
+/*!
+ A grouping of places to which you would like to restrict your results. Currently, you can use components to filter by country. The country must be passed as a two character, ISO 3166-1 Alpha-2 compatible country code. For example: components=country:fr would restrict your results to places within France.
+ */
+@property (nonatomic, retain) NSString *components;
+
 @end
 

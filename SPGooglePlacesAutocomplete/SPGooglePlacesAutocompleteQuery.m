@@ -15,7 +15,7 @@
 
 @implementation SPGooglePlacesAutocompleteQuery
 
-@synthesize input, sensor, key, offset, location, radius, language, types, resultBlock;
+@synthesize input, sensor, key, offset, location, radius, language, types, components, resultBlock;
 
 + (SPGooglePlacesAutocompleteQuery *)query {
     return [[[self alloc] init] autorelease];
@@ -45,6 +45,7 @@
     [input release];
     [key release];
     [language release];
+    [components release];
     [super dealloc];
 }
 
@@ -63,6 +64,9 @@
     }
     if (language) {
         [url appendFormat:@"&language=%@", language];
+    }
+    if (components) {
+        [url appendFormat:@"&components=%@", components];
     }
     if (types != -1) {
         [url appendFormat:@"&types=%@", SPPlaceTypeStringForPlaceType(types)];
